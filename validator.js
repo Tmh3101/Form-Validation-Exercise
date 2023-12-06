@@ -101,8 +101,3 @@ Validator.confirmPassword = function(selector, confirmValue){
         }
     };
 }
-
-
-Validator.submit = function(){
-    
-}
