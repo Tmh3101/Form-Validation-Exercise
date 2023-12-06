@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tmh3101's Form</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    
+    <div class="main">
+
+        <form action="" method="POST" id="form-1">
+
+            <h3 class="heading">SIGN UP</h3>
+            <p class="desc">Sign up account with Tmh3101</p>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+
+                <label for="fullname" class="form_label">Full Name</label>
+                <input type="text" name="fullname" id="fullname" placeholder="Ex: Tran Minh Hieu">
+                <span class="form-message"></span>
+
+            </div>
+            
+            <div class="form-group">
+
+                <label for="email" class="form_label">Email</label>
+                <input type="text" name="email" id="email" placeholder="Ex: tranminhhieu@gmail.com">
+                <span class="form-message"></span>
+
+            </div>
+            
+            <div class="form-group">
+
+                <label for="password" class="form_label">Password</label>
+                <input type="text" name="password" id="password" placeholder="Enter password">
+                <span class="form-message"></span>
+
+            </div>
+            
+            <div class="form-group">
+
+                <label for="password_confirmation" class="form_label">Confirm Password</label>
+                <input type="text" name="password_confirmation" id="password_confirmation" placeholder="Enter password again">
+                <span class="form-message"></span>
+
+            </div>
+
+            <button type="button" class="form-submit">Sign Up</button>
+
+
+        </form>
+
+
+    </div>
+
+
+</body>
+
+<script src="validator.js"></script>
+<script>
+
+    Validator({
+        form: '#form-1',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isRequired('#fullname'),
+            Validator.isEmail('#email'),
+            Validator.isPassword('#password', 8),
+            Validator.confirmPassword('#password_confirmation', function(){
+                return document.querySelector('#form-1 #password').value;
+            })
+        ],
+        submitElement: '.form-submit'
+    });
+
+</script>
+
+</html>
